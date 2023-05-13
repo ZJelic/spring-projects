@@ -1,0 +1,29 @@
+Zadatak je riješen u cijelosti. Preko login ekrana se korisnik, koji se nalazi u bazi, prijavljuje u aplikaciju (npr. eric, password123).
+Nalaze se dva linka preko kojih pristupa tablici usera. Prikažu se korisnici iz baze te je omogućen CRUD. Također, forme su unaprijed popunjene (prepopulated).
+Na drugom linku blog posts prikazuje se lista blogova, te je isto tako omogućen CRUD.
+Također, nalaze se search bar, koji funkcionira po nazivu bloga, lista komentara i add button za dodavanje novog komentara.
+
+####################
+
+Korištene tehnologije su: Spring BOOT, Thymeleaf, HTML, Bootstrap, CSS, MqSQL, Hibernate, JPA, Spring Security.
+
+HTML-om je generirana glavna struktura stranica/formi.
+Bootstrap se koristio zbog svojih gotovih komponenti (button-i...) tj. lakoće i brzine oblikovanja stranica.
+U MqSQL bazi su kreirane tri tablice s entitetima, primarnim i stranim ključevima.
+Thymeleaf je korišten za generiranje HTML-a za aplikaciju. Olakšava rad s podacima iz kontrolera (Spring) preko
+izraza i jednostavnih atributa (npr. th:action i th:object...).
+Spring Security-em je kreirana login forma koja autorizira korisnike iz baze.
+Spring BOOT je temeljen na Spring framework-u, pruža integraciju sa Spring Data i Spring Security-em. Korišten zbog
+brzine i jednostavnosti pisanja, automatske konfiguracije i ugrađenog servera.
+JPA je korišten zbog mapiranja objekata i povezivanja s kolonom u bazi.
+JpaRepository je temeljen na JPA specifikaciji i korišten je za rad s entitetima u bazi (CRUD). Funkcionalnosti su
+nasljeđene od JpaRepository-a.
+
+Najveći problem i mana dolazili su od Modela. Nije dovoljno fleksibilan. Za dodavanje i mijenjanje funkcionalnosti postaje
+poprilično složen. 
+
+
+
+
+
+

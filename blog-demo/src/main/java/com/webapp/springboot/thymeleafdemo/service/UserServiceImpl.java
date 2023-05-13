@@ -1,13 +1,12 @@
 package com.webapp.springboot.thymeleafdemo.service;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.webapp.springboot.thymeleafdemo.dao.UserRepository;
 import com.webapp.springboot.thymeleafdemo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.webapp.springboot.thymeleafdemo.dao.UserRepository;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -51,6 +50,10 @@ public class UserServiceImpl implements UserService {
 		userRepository.deleteById(theId);
 	}
 
+	@Override
+	public User findByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
 }
 
 

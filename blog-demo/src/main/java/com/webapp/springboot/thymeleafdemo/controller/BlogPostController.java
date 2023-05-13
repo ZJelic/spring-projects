@@ -27,7 +27,7 @@ public class BlogPostController {
 	// add mapping for "/list"
 	@GetMapping("/list")
 	public String listBlogPosts(Model theModel) {
-		
+
 		List<BlogPost> theBlogPosts = blogPostService.findAll();
 		
 		// add to the spring model
@@ -93,19 +93,13 @@ public class BlogPostController {
 		//redirect to /blog-posts/list
 		return "redirect:/blog-posts/list";
 	}
-
-	@GetMapping("/showComments")
-	public String showComments(@RequestParam("postId") int theId, Model theModel) {
-
-		// get the blogPost from the service
-		BlogPost theBlogPost = blogPostService.findById(theId);
-
-		// set post as a model attribute to pre-populate the form
-		theModel.addAttribute("post", theBlogPost);
-
-		return "blog-form/blog-form-comments";
+	@GetMapping("/searchByTitle")
+	public String searchByTitle(@RequestParam("searchTerm") String searchTerm, Model model) {
+		List<BlogPost> filteredPosts = blogPostService.findByTitleContainingIgnoreCase(searchTerm);
+		model.addAttribute("blogPosts", filteredPosts);
+		return "blog-form/blog-form";
 	}
-	
+
 }
 
 

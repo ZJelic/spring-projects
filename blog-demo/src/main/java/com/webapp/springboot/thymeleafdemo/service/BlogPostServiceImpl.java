@@ -3,7 +3,6 @@ package com.webapp.springboot.thymeleafdemo.service;
 import com.webapp.springboot.thymeleafdemo.dao.BlogPostRepository;
 import com.webapp.springboot.thymeleafdemo.dao.UserRepository;
 import com.webapp.springboot.thymeleafdemo.entity.BlogPost;
-import com.webapp.springboot.thymeleafdemo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +52,10 @@ public class BlogPostServiceImpl implements BlogPostService {
 		blogPostRepository.deleteById(theId);
 	}
 
+	@Override
+	public List<BlogPost> findByTitleContainingIgnoreCase(String term) {
+		return blogPostRepository.findByTitleContainingIgnoreCase(term);
+	}
 }
 
 

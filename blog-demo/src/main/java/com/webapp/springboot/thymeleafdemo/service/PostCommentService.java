@@ -11,9 +11,9 @@ public interface PostCommentService {
 	public Comment findById(int theId);
 
 	
-	public void save(Comment theBlogPost);
+	public void save(Comment comment);
 	
 	public void deleteById(int theId);
 
-	
+	public List<Comment> findByBlogPostId(int id);
 }

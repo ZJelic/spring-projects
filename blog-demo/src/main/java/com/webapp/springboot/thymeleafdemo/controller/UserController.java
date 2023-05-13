@@ -1,18 +1,13 @@
 package com.webapp.springboot.thymeleafdemo.controller;
 
-import java.util.List;
+import com.webapp.springboot.thymeleafdemo.entity.*;
+import com.webapp.springboot.thymeleafdemo.service.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.ui.*;
+import org.springframework.web.bind.annotation.*;
 
-import com.webapp.springboot.thymeleafdemo.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.webapp.springboot.thymeleafdemo.service.UserService;
+import java.util.*;
 
 @Controller
 @RequestMapping("/users")

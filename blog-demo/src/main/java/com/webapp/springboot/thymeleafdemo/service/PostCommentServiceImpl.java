@@ -1,16 +1,11 @@
 package com.webapp.springboot.thymeleafdemo.service;
 
-import com.webapp.springboot.thymeleafdemo.dao.BlogPostRepository;
 import com.webapp.springboot.thymeleafdemo.dao.PostCommentRepository;
-import com.webapp.springboot.thymeleafdemo.dao.UserRepository;
-import com.webapp.springboot.thymeleafdemo.entity.BlogPost;
 import com.webapp.springboot.thymeleafdemo.entity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class PostCommentServiceImpl implements PostCommentService {
@@ -22,10 +17,14 @@ public class PostCommentServiceImpl implements PostCommentService {
 		postCommentRepository = thePostCommentRepository;
 	}
 
+	@Override
+	public List<Comment> findByBlogPostId(int id) {
+		return postCommentRepository.findByBlogPostId(id);
+	}
 
 	@Override
-	public Set<Comment> findAll() {
-		return postCommentRepository.findAllByOrderByUsernameAsc();
+	public List<Comment> findAll() {
+		return null;
 	}
 
 	@Override
@@ -34,8 +33,8 @@ public class PostCommentServiceImpl implements PostCommentService {
 	}
 
 	@Override
-	public void save(Comment theBlogPost) {
-
+	public void save(Comment comment) {
+		postCommentRepository.save(comment);
 	}
 
 	@Override

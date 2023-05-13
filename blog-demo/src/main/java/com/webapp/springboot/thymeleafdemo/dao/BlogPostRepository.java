@@ -7,10 +7,8 @@ import java.util.List;
 
 public interface BlogPostRepository extends JpaRepository<BlogPost, Integer> {
 
-	// code not needed
-	
 	// add a method to sort by id
 	public List<BlogPost> findAllByOrderByIdAsc();
 
-	
+	List <BlogPost> findByTitleContainingIgnoreCase(String term);
 }

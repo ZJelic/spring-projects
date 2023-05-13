@@ -1,8 +1,8 @@
 package com.webapp.springboot.thymeleafdemo.service;
 
-import java.util.List;
-
 import com.webapp.springboot.thymeleafdemo.entity.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -13,5 +13,7 @@ public interface UserService {
 	public void save(User theUser);
 	
 	public void deleteById(int theId);
+
+	public User findByUsername(String username);
 	
 }

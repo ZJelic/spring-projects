@@ -1,11 +1,13 @@
 package com.webapp.springboot.thymeleafdemo.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name="comments")
 public class Comment {
+
+    // define fields
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -30,17 +32,21 @@ public class Comment {
     @JoinColumn(name = "blogpost_id")
     private BlogPost blogPost;
 
+    // define constructors
     public Comment(){
 
     }
 
-    public Comment(int id, String content, Date created_at, Date updated_at, User user) {
+    public Comment(int id, String content, Date created_at, Date updated_at, User user, BlogPost blogPost) {
         this.id = id;
         this.content = content;
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.user = user;
+        this.blogPost = blogPost;
     }
+
+    // define setters/getters
 
     public int getId() {
         return id;
@@ -81,6 +87,16 @@ public class Comment {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public BlogPost getBlogPost() {
+        return blogPost;
+    }
+
+    public void setBlogPost(BlogPost blogPost) {
+        this.blogPost = blogPost;
+    }
+
+    // define toString
 
     @Override
     public String toString() {
